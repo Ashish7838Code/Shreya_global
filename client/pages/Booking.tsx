@@ -389,9 +389,10 @@ export default function Booking() {
           <div className="flex justify-center">
             <button
               type="submit"
-              className="w-full md:w-auto px-12 py-4 bg-primary hover:bg-blue-700 text-white font-bold rounded-lg transition text-lg"
+              disabled={loading}
+              className="w-full md:w-auto px-12 py-4 bg-primary hover:bg-blue-700 disabled:bg-gray-400 text-white font-bold rounded-lg transition text-lg"
             >
-              SUBMIT BOOKING REQUEST
+              {loading ? "SUBMITTING..." : "SUBMIT BOOKING REQUEST"}
             </button>
           </div>
         </form>
