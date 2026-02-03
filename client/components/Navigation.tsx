@@ -104,6 +104,26 @@ export function Navigation() {
             >
               Contact
             </Link>
+            <div className="pt-2 border-t border-gray-200">
+              {user ? (
+                <Link
+                  to="/profile"
+                  className="block py-2"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <Button className="w-full">{user.name || "Profile"}</Button>
+                </Link>
+              ) : (
+                <div className="flex gap-2">
+                  <Link to="/login" className="flex-1" onClick={() => setIsOpen(false)}>
+                    <Button variant="outline" className="w-full">Login</Button>
+                  </Link>
+                  <Link to="/signup" className="flex-1" onClick={() => setIsOpen(false)}>
+                    <Button className="w-full">Sign Up</Button>
+                  </Link>
+                </div>
+              )}
+            </div>
           </div>
         )}
       </div>
