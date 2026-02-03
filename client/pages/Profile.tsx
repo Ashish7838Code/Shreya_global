@@ -3,7 +3,13 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import Navigation from "@/components/Navigation";
 
@@ -57,7 +63,8 @@ export default function Profile() {
     } catch (error) {
       toast({
         title: "Error",
-        description: error instanceof Error ? error.message : "Failed to update profile",
+        description:
+          error instanceof Error ? error.message : "Failed to update profile",
         variant: "destructive",
       });
     } finally {
@@ -96,23 +103,33 @@ export default function Profile() {
               {!isEditing ? (
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-sm font-medium mb-1">Email</label>
+                    <label className="block text-sm font-medium mb-1">
+                      Email
+                    </label>
                     <p className="text-gray-700">{user.email}</p>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-1">Full Name</label>
+                    <label className="block text-sm font-medium mb-1">
+                      Full Name
+                    </label>
                     <p className="text-gray-700">{user.name || "Not set"}</p>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-1">Phone</label>
+                    <label className="block text-sm font-medium mb-1">
+                      Phone
+                    </label>
                     <p className="text-gray-700">{user.phone || "Not set"}</p>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-1">Address</label>
+                    <label className="block text-sm font-medium mb-1">
+                      Address
+                    </label>
                     <p className="text-gray-700">{user.address || "Not set"}</p>
                   </div>
                   <div className="flex gap-2 pt-4">
-                    <Button onClick={() => setIsEditing(true)}>Edit Profile</Button>
+                    <Button onClick={() => setIsEditing(true)}>
+                      Edit Profile
+                    </Button>
                     <Button variant="outline" onClick={handleLogout}>
                       Logout
                     </Button>
@@ -121,7 +138,10 @@ export default function Profile() {
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium mb-2">
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium mb-2"
+                    >
                       Full Name
                     </label>
                     <Input
@@ -134,7 +154,10 @@ export default function Profile() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium mb-2">
+                    <label
+                      htmlFor="phone"
+                      className="block text-sm font-medium mb-2"
+                    >
                       Phone
                     </label>
                     <Input
@@ -146,7 +169,10 @@ export default function Profile() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="address" className="block text-sm font-medium mb-2">
+                    <label
+                      htmlFor="address"
+                      className="block text-sm font-medium mb-2"
+                    >
                       Address
                     </label>
                     <Input

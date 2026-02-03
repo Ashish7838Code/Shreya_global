@@ -115,10 +115,20 @@ export function Navigation() {
                 </Link>
               ) : (
                 <div className="flex gap-2">
-                  <Link to="/login" className="flex-1" onClick={() => setIsOpen(false)}>
-                    <Button variant="outline" className="w-full">Login</Button>
+                  <Link
+                    to="/login"
+                    className="flex-1"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    <Button variant="outline" className="w-full">
+                      Login
+                    </Button>
                   </Link>
-                  <Link to="/signup" className="flex-1" onClick={() => setIsOpen(false)}>
+                  <Link
+                    to="/signup"
+                    className="flex-1"
+                    onClick={() => setIsOpen(false)}
+                  >
                     <Button className="w-full">Sign Up</Button>
                   </Link>
                 </div>

@@ -7,7 +7,11 @@ interface AuthContextType {
   signup: (email: string, password: string, name: string) => Promise<void>;
   login: (email: string, password: string) => Promise<void>;
   logout: () => Promise<void>;
-  updateProfile: (name: string, phone?: string, address?: string) => Promise<void>;
+  updateProfile: (
+    name: string,
+    phone?: string,
+    address?: string,
+  ) => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -72,11 +76,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   const signup = async (email: string, password: string, name: string) => {
     try {
       // Create auth account
-      const { data: authData, error: authError } =
-        await supabase.auth.signUp({
-          email,
-          password,
-        });
+      const { data: authData, error: authError } = await supabase.auth.signUp({
+        email,
+        password,
+      });
 
       if (authError) throw authError;
       if (!authData.user) throw new Error("User creation failed");
@@ -137,7 +140,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     }
   };
 
-  const updateProfile = async (name: string, phone?: string, address?: string) => {
+  const updateProfile = async (
+    name: string,
+    phone?: string,
+    address?: string,
+  ) => {
     if (!user) throw new Error("No user logged in");
 
     try {

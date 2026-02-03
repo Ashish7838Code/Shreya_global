@@ -3,7 +3,13 @@ import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import Navigation from "@/components/Navigation";
 
@@ -51,7 +57,8 @@ export default function Signup() {
     } catch (error) {
       toast({
         title: "Error",
-        description: error instanceof Error ? error.message : "Failed to create account",
+        description:
+          error instanceof Error ? error.message : "Failed to create account",
         variant: "destructive",
       });
     } finally {
@@ -72,7 +79,10 @@ export default function Signup() {
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium mb-2">
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium mb-2"
+                  >
                     Full Name
                   </label>
                   <Input
@@ -86,7 +96,10 @@ export default function Signup() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-2">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium mb-2"
+                  >
                     Email
                   </label>
                   <Input
@@ -100,7 +113,10 @@ export default function Signup() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="password" className="block text-sm font-medium mb-2">
+                  <label
+                    htmlFor="password"
+                    className="block text-sm font-medium mb-2"
+                  >
                     Password
                   </label>
                   <Input
@@ -114,7 +130,10 @@ export default function Signup() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="confirmPassword" className="block text-sm font-medium mb-2">
+                  <label
+                    htmlFor="confirmPassword"
+                    className="block text-sm font-medium mb-2"
+                  >
                     Confirm Password
                   </label>
                   <Input
