@@ -11,10 +11,10 @@ export default function Booking() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
-    phone: "",
-    pickupAddress: "",
+    fullName: user?.name || "",
+    email: user?.email || "",
+    phone: user?.phone || "",
+    pickupAddress: user?.address || "",
     pickupCity: "",
     pickupPostal: "",
     deliveryAddress: "",
