@@ -222,10 +222,10 @@ export default function Index() {
                 </li>
                 <li>
                   <a
-                    href="tel:+919764534234"
+                    href="tel:+919560310284"
                     className="hover:text-primary transition"
                   >
-                    +91 9764534234
+                    +91 95603 10284
                   </a>
                 </li>
               </ul>

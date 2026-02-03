@@ -421,10 +421,10 @@ export default function Booking() {
             <div className="flex items-center justify-center space-x-3">
               <span className="text-2xl">📞</span>
               <a
-                href="tel:+919764534234"
+                href="tel:+919560310284"
                 className="text-primary font-semibold hover:underline"
               >
-                +91 9764534234
+                +91 95603 10284
               </a>
             </div>
           </div>
@@ -506,10 +506,10 @@ export default function Booking() {
                 </li>
                 <li>
                   <a
-                    href="tel:+919764534234"
+                    href="tel:+919560310284"
                     className="hover:text-primary transition"
                   >
-                    +91 9764534234
+                    +91 95603 10284
                   </a>
                 </li>
               </ul>
