@@ -1,9 +1,15 @@
 import { Navigation } from "@/components/Navigation";
 import { useState } from "react";
 import { CheckCircle2, AlertCircle } from "lucide-react";
+import { useAuth } from "@/hooks/useAuth";
+import { supabase } from "@shared/supabase";
+import { useToast } from "@/hooks/use-toast";
 
 export default function Booking() {
+  const { user } = useAuth();
+  const { toast } = useToast();
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
