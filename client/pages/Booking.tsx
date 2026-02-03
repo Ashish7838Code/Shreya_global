@@ -38,28 +38,65 @@ export default function Booking() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setFormData({
-        fullName: "",
-        email: "",
-        phone: "",
-        pickupAddress: "",
-        pickupCity: "",
-        pickupPostal: "",
-        deliveryAddress: "",
-        deliveryCity: "",
-        deliveryPostal: "",
-        packageWeight: "",
-        packageDimensions: "",
-        serviceType: "standard",
-        additionalNotes: "",
+    setLoading(true);
+
+    try {
+      if (user) {
+        // Save booking to Supabase if user is logged in
+        const { error } = await supabase.from("bookings").insert([
+          {
+            user_id: user.id,
+            service: formData.serviceType,
+            pickup_location: `${formData.pickupAddress}, ${formData.pickupCity}, ${formData.pickupPostal}`,
+            delivery_location: `${formData.deliveryAddress}, ${formData.deliveryCity}, ${formData.deliveryPostal}`,
+            scheduled_date: new Date().toISOString(),
+            status: "pending",
+            notes: formData.additionalNotes,
+          },
+        ]);
+
+        if (error) throw error;
+      }
+
+      setSubmitted(true);
+      toast({
+        title: "Success",
+        description: user
+          ? "Booking saved to your account!"
+          : "Booking submitted successfully!",
       });
-      setSubmitted(false);
-    }, 3000);
+
+      // Reset form after 3 seconds
+      setTimeout(() => {
+        setFormData({
+          fullName: user?.name || "",
+          email: user?.email || "",
+          phone: user?.phone || "",
+          pickupAddress: user?.address || "",
+          pickupCity: "",
+          pickupPostal: "",
+          deliveryAddress: "",
+          deliveryCity: "",
+          deliveryPostal: "",
+          packageWeight: "",
+          packageDimensions: "",
+          serviceType: "standard",
+          additionalNotes: "",
+        });
+        setSubmitted(false);
+      }, 3000);
+    } catch (error) {
+      toast({
+        title: "Error",
+        description:
+          error instanceof Error ? error.message : "Failed to submit booking",
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (submitted) {
