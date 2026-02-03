@@ -12,7 +12,7 @@ export default function Index() {
         <div className="text-center space-y-8">
           <div className="space-y-4">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900">
-              Global Logistics <span className="text-primary">Excellence</span>
+              Shreya Global <span className="text-primary">Enterprises</span>
             </h1>
             <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
               Fast, reliable, and secure courier services for businesses
