@@ -48,6 +48,20 @@ export function Navigation() {
             >
               Contact
             </Link>
+            {user ? (
+              <Link to="/profile">
+                <Button variant="outline">{user.name || "Profile"}</Button>
+              </Link>
+            ) : (
+              <div className="flex gap-2">
+                <Link to="/login">
+                  <Button variant="outline">Login</Button>
+                </Link>
+                <Link to="/signup">
+                  <Button>Sign Up</Button>
+                </Link>
+              </div>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
