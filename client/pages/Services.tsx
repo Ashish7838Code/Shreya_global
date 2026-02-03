@@ -62,8 +62,8 @@ export default function Services() {
               Service <span className="text-primary">Catalog</span>
             </h1>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Comprehensive logistics solutions engineered for speed, security, and global
-              reach. Choose the service that fits your needs.
+              Comprehensive logistics solutions engineered for speed, security,
+              and global reach. Choose the service that fits your needs.
             </p>
           </div>
         </div>
@@ -75,13 +75,16 @@ export default function Services() {
           <div className="text-center space-y-4">
             <div className="inline-flex items-center space-x-2 bg-blue-100 px-4 py-2 rounded-full">
               <span className="text-2xl">📦</span>
-              <span className="font-semibold text-primary">Courier Services</span>
+              <span className="font-semibold text-primary">
+                Courier Services
+              </span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
               Flexible Shipping Options
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Professional delivery solutions tailored to your logistics requirements
+              Professional delivery solutions tailored to your logistics
+              requirements
             </p>
           </div>
 
@@ -175,7 +178,10 @@ export default function Services() {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/services" className="hover:text-primary transition">
+                  <Link
+                    to="/services"
+                    className="hover:text-primary transition"
+                  >
                     Services
                   </Link>
                 </li>
@@ -222,7 +228,10 @@ export default function Services() {
                   </a>
                 </li>
                 <li>
-                  <a href="tel:+919764534234" className="hover:text-primary transition">
+                  <a
+                    href="tel:+919764534234"
+                    className="hover:text-primary transition"
+                  >
                     +91 9764534234
                   </a>
                 </li>

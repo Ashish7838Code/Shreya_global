@@ -23,7 +23,7 @@ export default function Booking() {
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    >,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -67,13 +67,19 @@ export default function Booking() {
               Booking Confirmed!
             </h1>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Your shipment request has been successfully submitted. Our team will contact
-              you shortly to confirm the details and arrange pickup.
+              Your shipment request has been successfully submitted. Our team
+              will contact you shortly to confirm the details and arrange
+              pickup.
             </p>
             <div className="bg-green-50 border border-green-200 rounded-lg p-6 max-w-md mx-auto text-left">
-              <h3 className="font-semibold text-green-900 mb-3">What happens next?</h3>
+              <h3 className="font-semibold text-green-900 mb-3">
+                What happens next?
+              </h3>
               <ul className="space-y-2 text-sm text-green-800">
-                <li>✓ You'll receive a confirmation email with your booking details</li>
+                <li>
+                  ✓ You'll receive a confirmation email with your booking
+                  details
+                </li>
                 <li>✓ Our logistics team will verify your shipment</li>
                 <li>✓ You'll get a pickup schedule within 24 hours</li>
                 <li>✓ Real-time tracking will be available immediately</li>
@@ -362,26 +368,32 @@ export default function Booking() {
               <div className="bg-white p-6 rounded-lg border border-gray-200">
                 <h3 className="font-bold text-gray-900 mb-3">Submit Request</h3>
                 <p className="text-gray-600 text-sm">
-                  Complete the booking form with shipment details and submit your request
+                  Complete the booking form with shipment details and submit
+                  your request
                 </p>
               </div>
               <div className="bg-white p-6 rounded-lg border border-gray-200">
                 <h3 className="font-bold text-gray-900 mb-3">Confirmation</h3>
                 <p className="text-gray-600 text-sm">
-                  Receive email confirmation and booking confirmation with unique reference
-                  ID
+                  Receive email confirmation and booking confirmation with
+                  unique reference ID
                 </p>
               </div>
               <div className="bg-white p-6 rounded-lg border border-gray-200">
-                <h3 className="font-bold text-gray-900 mb-3">Pickup Coordination</h3>
+                <h3 className="font-bold text-gray-900 mb-3">
+                  Pickup Coordination
+                </h3>
                 <p className="text-gray-600 text-sm">
                   Our team coordinates pickup schedule based on your convenience
                 </p>
               </div>
               <div className="bg-white p-6 rounded-lg border border-gray-200">
-                <h3 className="font-bold text-gray-900 mb-3">Real-Time Tracking</h3>
+                <h3 className="font-bold text-gray-900 mb-3">
+                  Real-Time Tracking
+                </h3>
                 <p className="text-gray-600 text-sm">
-                  Monitor your shipment status in real-time from pickup to delivery
+                  Monitor your shipment status in real-time from pickup to
+                  delivery
                 </p>
               </div>
             </div>
@@ -493,7 +505,10 @@ export default function Booking() {
                   </a>
                 </li>
                 <li>
-                  <a href="tel:+919764534234" className="hover:text-primary transition">
+                  <a
+                    href="tel:+919764534234"
+                    className="hover:text-primary transition"
+                  >
                     +91 9764534234
                   </a>
                 </li>

@@ -15,8 +15,9 @@ export default function Index() {
               Global Logistics <span className="text-primary">Excellence</span>
             </h1>
             <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
-              Fast, reliable, and secure courier services for businesses worldwide.
-              Experience seamless logistics with real-time tracking and dedicated support.
+              Fast, reliable, and secure courier services for businesses
+              worldwide. Experience seamless logistics with real-time tracking
+              and dedicated support.
             </p>
           </div>
 
@@ -44,15 +45,21 @@ export default function Index() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-12">
             <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-primary">98%</div>
+              <div className="text-3xl sm:text-4xl font-bold text-primary">
+                98%
+              </div>
               <p className="text-gray-600 mt-2">On-Time Delivery</p>
             </div>
             <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-primary">50+</div>
+              <div className="text-3xl sm:text-4xl font-bold text-primary">
+                50+
+              </div>
               <p className="text-gray-600 mt-2">Countries Served</p>
             </div>
             <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-primary">24/7</div>
+              <div className="text-3xl sm:text-4xl font-bold text-primary">
+                24/7
+              </div>
               <p className="text-gray-600 mt-2">Customer Support</p>
             </div>
           </div>
@@ -81,7 +88,8 @@ export default function Index() {
                 Courier Services
               </h3>
               <p className="text-gray-600">
-                Professional package delivery with full tracking and insurance coverage for peace of mind.
+                Professional package delivery with full tracking and insurance
+                coverage for peace of mind.
               </p>
             </div>
 
@@ -94,7 +102,8 @@ export default function Index() {
                 Fleet Management
               </h3>
               <p className="text-gray-600">
-                Modern vehicles maintained to the highest standards for reliable transportation.
+                Modern vehicles maintained to the highest standards for reliable
+                transportation.
               </p>
             </div>
 
@@ -107,7 +116,8 @@ export default function Index() {
                 Real-Time Tracking
               </h3>
               <p className="text-gray-600">
-                Monitor your shipments in real-time with detailed updates at every step.
+                Monitor your shipments in real-time with detailed updates at
+                every step.
               </p>
             </div>
           </div>
@@ -120,8 +130,8 @@ export default function Index() {
           <div className="space-y-4">
             <h2 className="text-3xl sm:text-4xl font-bold">Ready to Deploy?</h2>
             <p className="text-lg text-blue-100">
-              Get started with Shreya Global Enterprises today and experience the difference
-              in logistics excellence.
+              Get started with Shreya Global Enterprises today and experience
+              the difference in logistics excellence.
             </p>
           </div>
           <Link
@@ -161,7 +171,10 @@ export default function Index() {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/services" className="hover:text-primary transition">
+                  <Link
+                    to="/services"
+                    className="hover:text-primary transition"
+                  >
                     Services
                   </Link>
                 </li>
@@ -208,7 +221,10 @@ export default function Index() {
                   </a>
                 </li>
                 <li>
-                  <a href="tel:+919764534234" className="hover:text-primary transition">
+                  <a
+                    href="tel:+919764534234"
+                    className="hover:text-primary transition"
+                  >
                     +91 9764534234
                   </a>
                 </li>

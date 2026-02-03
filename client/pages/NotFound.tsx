@@ -26,8 +26,8 @@ const NotFound = () => {
               Page Not Found
             </h1>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Sorry, the page you're looking for doesn't exist or hasn't been built yet.
-              Head back home or explore our services.
+              Sorry, the page you're looking for doesn't exist or hasn't been
+              built yet. Head back home or explore our services.
             </p>
           </div>
 

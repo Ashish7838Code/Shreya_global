@@ -21,16 +21,28 @@ export function Navigation() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link to="/" className="text-gray-600 hover:text-primary transition">
+            <Link
+              to="/"
+              className="text-gray-600 hover:text-primary transition"
+            >
               Home
             </Link>
-            <Link to="/services" className="text-gray-600 hover:text-primary transition">
+            <Link
+              to="/services"
+              className="text-gray-600 hover:text-primary transition"
+            >
               Services
             </Link>
-            <Link to="/booking" className="text-gray-600 hover:text-primary transition">
+            <Link
+              to="/booking"
+              className="text-gray-600 hover:text-primary transition"
+            >
               Booking
             </Link>
-            <Link to="/contact" className="text-gray-600 hover:text-primary transition">
+            <Link
+              to="/contact"
+              className="text-gray-600 hover:text-primary transition"
+            >
               Contact
             </Link>
           </div>
