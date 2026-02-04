@@ -1,6 +1,7 @@
 import { Navigation } from "@/components/Navigation";
 import { Link } from "react-router-dom";
 import { ArrowRight, Package, Truck, Clock } from "lucide-react";
+import Navigation from "@/components/Navigation";
 
 export default function Index() {
   return (
