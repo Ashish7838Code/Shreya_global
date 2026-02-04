@@ -1,14 +1,20 @@
-import { Navigation } from "@/components/Navigation";
+import Navigation from "@/components/Navigation";
 import { useState } from "react";
 import { CheckCircle2, AlertCircle } from "lucide-react";
+import { useAuth } from "@/hooks/useAuth";
+import { supabase } from "@shared/supabase";
+import { useToast } from "@/hooks/use-toast";
 
 export default function Booking() {
+  const { user } = useAuth();
+  const { toast } = useToast();
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
-    phone: "",
-    pickupAddress: "",
+    fullName: user?.name || "",
+    email: user?.email || "",
+    phone: user?.phone || "",
+    pickupAddress: user?.address || "",
     pickupCity: "",
     pickupPostal: "",
     deliveryAddress: "",
@@ -32,28 +38,65 @@ export default function Booking() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setFormData({
-        fullName: "",
-        email: "",
-        phone: "",
-        pickupAddress: "",
-        pickupCity: "",
-        pickupPostal: "",
-        deliveryAddress: "",
-        deliveryCity: "",
-        deliveryPostal: "",
-        packageWeight: "",
-        packageDimensions: "",
-        serviceType: "standard",
-        additionalNotes: "",
+    setLoading(true);
+
+    try {
+      if (user && supabase) {
+        // Save booking to Supabase if user is logged in
+        const { error } = await supabase.from("bookings").insert([
+          {
+            user_id: user.id,
+            service: formData.serviceType,
+            pickup_location: `${formData.pickupAddress}, ${formData.pickupCity}, ${formData.pickupPostal}`,
+            delivery_location: `${formData.deliveryAddress}, ${formData.deliveryCity}, ${formData.deliveryPostal}`,
+            scheduled_date: new Date().toISOString(),
+            status: "pending",
+            notes: formData.additionalNotes,
+          },
+        ]);
+
+        if (error) throw error;
+      }
+
+      setSubmitted(true);
+      toast({
+        title: "Success",
+        description: user
+          ? "Booking saved to your account!"
+          : "Booking submitted successfully!",
       });
-      setSubmitted(false);
-    }, 3000);
+
+      // Reset form after 3 seconds
+      setTimeout(() => {
+        setFormData({
+          fullName: user?.name || "",
+          email: user?.email || "",
+          phone: user?.phone || "",
+          pickupAddress: user?.address || "",
+          pickupCity: "",
+          pickupPostal: "",
+          deliveryAddress: "",
+          deliveryCity: "",
+          deliveryPostal: "",
+          packageWeight: "",
+          packageDimensions: "",
+          serviceType: "standard",
+          additionalNotes: "",
+        });
+        setSubmitted(false);
+      }, 3000);
+    } catch (error) {
+      toast({
+        title: "Error",
+        description:
+          error instanceof Error ? error.message : "Failed to submit booking",
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (submitted) {
@@ -346,9 +389,10 @@ export default function Booking() {
           <div className="flex justify-center">
             <button
               type="submit"
-              className="w-full md:w-auto px-12 py-4 bg-primary hover:bg-blue-700 text-white font-bold rounded-lg transition text-lg"
+              disabled={loading}
+              className="w-full md:w-auto px-12 py-4 bg-primary hover:bg-blue-700 disabled:bg-gray-400 text-white font-bold rounded-lg transition text-lg"
             >
-              SUBMIT BOOKING REQUEST
+              {loading ? "SUBMITTING..." : "SUBMIT BOOKING REQUEST"}
             </button>
           </div>
         </form>

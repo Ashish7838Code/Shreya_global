@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { useAuth } from "@/hooks/useAuth";
+import { Button } from "@/components/ui/button";
 
-export function Navigation() {
+function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const { user } = useAuth();
 
   return (
     <nav className="border-b border-gray-200 bg-white sticky top-0 z-50">
@@ -45,6 +48,20 @@ export function Navigation() {
             >
               Contact
             </Link>
+            {user ? (
+              <Link to="/profile">
+                <Button variant="outline">{user.name || "Profile"}</Button>
+              </Link>
+            ) : (
+              <div className="flex gap-2">
+                <Link to="/login">
+                  <Button variant="outline">Login</Button>
+                </Link>
+                <Link to="/signup">
+                  <Button>Sign Up</Button>
+                </Link>
+              </div>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -87,9 +104,41 @@ export function Navigation() {
             >
               Contact
             </Link>
+            <div className="pt-2 border-t border-gray-200">
+              {user ? (
+                <Link
+                  to="/profile"
+                  className="block py-2"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <Button className="w-full">{user.name || "Profile"}</Button>
+                </Link>
+              ) : (
+                <div className="flex gap-2">
+                  <Link
+                    to="/login"
+                    className="flex-1"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    <Button variant="outline" className="w-full">
+                      Login
+                    </Button>
+                  </Link>
+                  <Link
+                    to="/signup"
+                    className="flex-1"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    <Button className="w-full">Sign Up</Button>
+                  </Link>
+                </div>
+              )}
+            </div>
           </div>
         )}
       </div>
     </nav>
   );
 }
+
+export default Navigation;
