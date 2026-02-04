@@ -43,7 +43,7 @@ export default function Booking() {
     setLoading(true);
 
     try {
-      if (user) {
+      if (user && supabase) {
         // Save booking to Supabase if user is logged in
         const { error } = await supabase.from("bookings").insert([
           {
