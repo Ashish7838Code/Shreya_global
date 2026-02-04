@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useAuth } from "@/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 
-export function Navigation() {
+function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const { user } = useAuth();
 
@@ -140,3 +140,5 @@ export function Navigation() {
     </nav>
   );
 }
+
+export default Navigation;
