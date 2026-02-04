@@ -1,4 +1,4 @@
-import { Navigation } from "@/components/Navigation";
+import Navigation from "@/components/Navigation";
 import { Link } from "react-router-dom";
 import { Home, ArrowRight } from "lucide-react";
 import { useLocation } from "react-router-dom";

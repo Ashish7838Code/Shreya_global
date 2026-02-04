@@ -1,4 +1,4 @@
-import { Navigation } from "@/components/Navigation";
+import Navigation from "@/components/Navigation";
 import { Link } from "react-router-dom";
 import { ArrowRight, Shield, MapPin, Phone, Mail } from "lucide-react";
 
