@@ -25,6 +25,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   // Check if user is already logged in
   useEffect(() => {
     const checkUser = async () => {
+      if (!supabase) {
+        setLoading(false);
+        return;
+      }
+
       try {
         const {
           data: { session },
