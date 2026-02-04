@@ -79,6 +79,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   }, []);
 
   const signup = async (email: string, password: string, name: string) => {
+    if (!supabase) {
+      throw new Error("Supabase is not configured. Please set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY.");
+    }
+
     try {
       // Create auth account
       const { data: authData, error: authError } = await supabase.auth.signUp({
