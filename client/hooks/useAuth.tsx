@@ -164,6 +164,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     address?: string,
   ) => {
     if (!user) throw new Error("No user logged in");
+    if (!supabase) throw new Error("Supabase is not configured");
 
     try {
       const { data, error } = await supabase
